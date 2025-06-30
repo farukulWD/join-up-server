@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "E:\\Next js project\\job-task\\web-instructor\\join-up-server\\logs\\winston\\successes\\.7e2a1e25c095316ce4a0fdc87801b9d3d5a9a3e8-audit.json",
+    "files": [
+        {
+            "date": 1751296238370,
+            "name": "E:\\Next js project\\job-task\\web-instructor\\join-up-server\\logs\\winston\\successes\\join-up-2025-30-06-21-success.log",
+            "hash": "8a560f74513db66d90312c6327483319ed449e8ae9f262d518f848114da229c2"
+        },
+        {
+            "date": 1751301433306,
+            "name": "E:\\Next js project\\job-task\\web-instructor\\join-up-server\\logs\\winston\\successes\\join-up-2025-30-06-22-success.log",
+            "hash": "e4a7d30023e7f7fffd2b7151b05ccc8b9ca57b080b22a950d9911e2c5e9bae24"
+        }
+    ],
+    "hashType": "sha256"
+}
