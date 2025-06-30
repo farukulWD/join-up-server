@@ -5,6 +5,8 @@ export interface IUser extends Document {
   email: string;
   photoURL: string;
   password: string;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface UserModel extends Model<IUser> {
