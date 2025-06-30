@@ -19,7 +19,8 @@ const createEvent = catchAsync(async (req: Request, res: Response) => {
 });
 
 const getAllEvents = catchAsync(async (req: Request, res: Response) => {
-  const result = await eventServices.getAllEventsService();
+  const query = req.query;
+  const result = await eventServices.getAllEventsService(query);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
