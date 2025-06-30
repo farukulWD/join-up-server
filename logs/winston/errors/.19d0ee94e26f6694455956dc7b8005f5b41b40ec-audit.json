@@ -6,14 +6,9 @@
     "auditLog": "E:\\Next js project\\job-task\\web-instructor\\join-up-server\\logs\\winston\\errors\\.19d0ee94e26f6694455956dc7b8005f5b41b40ec-audit.json",
     "files": [
         {
-            "date": 1751296238373,
-            "name": "E:\\Next js project\\job-task\\web-instructor\\join-up-server\\logs\\winston\\errors\\join-up-2025-30-06-21-error.log",
-            "hash": "eeff2f5f2e5cf46fb5e1d3d68d0150e6edbd60c4ab80372554778695cce1686a"
-        },
-        {
-            "date": 1751301433310,
-            "name": "E:\\Next js project\\job-task\\web-instructor\\join-up-server\\logs\\winston\\errors\\join-up-2025-30-06-22-error.log",
-            "hash": "b6b960942e53d74f4b04087ebc7cd7f73d9d1dca9824a5d81b5c88e0862abe31"
+            "date": 1751304256323,
+            "name": "E:\\Next js project\\job-task\\web-instructor\\join-up-server\\logs\\winston\\errors\\join-up-2025-30-06-23-error.log",
+            "hash": "f2780cc8770235529494419c0ee26bfcea276c75ea2f3ff84b7ec4f0a2351730"
         }
     ],
     "hashType": "sha256"

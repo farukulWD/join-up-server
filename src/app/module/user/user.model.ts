@@ -37,4 +37,11 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
+userSchema.statics.isPasswordMatched = async function (
+  plainTextPassword,
+  hashedPassword
+) {
+  return await bcrypt.compare(plainTextPassword, hashedPassword);
+};
+
 export const User = model<IUser, UserModel>("User", userSchema);
