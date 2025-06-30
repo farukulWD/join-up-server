@@ -3,6 +3,7 @@ import { User } from "../user/user.model";
 import { IEvent } from "./event.interface";
 import httpStatus from "http-status";
 import { Event } from "./event.model";
+import { QueryBuilder } from "../../query/query-builder";
 
 const createEventService = async (eventData: IEvent) => {
   if (!eventData.title) {
@@ -34,12 +35,26 @@ const createEventService = async (eventData: IEvent) => {
   return res;
 };
 
-const getAllEventsService = async () => {
-  const result = await Event.find({})
-    .populate("postBy")
+const getAllEventsService = async (query: Record<string, unknown>) => {
+  const queryBuilder = new QueryBuilder(Event.find(), query);
+
+  const modelQuery = queryBuilder
+    .search(["title", "location", "description"])
+    .filter()
+    .dateFilter("date")
+    .sort()
+    .paginate()
+    .fields()
+    .modelQuery.populate("postedBy")
     .populate("joinedUsers");
 
-  return result;
+  const events = await modelQuery;
+  const meta = await queryBuilder.countTotal();
+
+  return {
+    meta,
+    data: events,
+  };
 };
 
 const getSingleEventService = async (eventId: string) => {
