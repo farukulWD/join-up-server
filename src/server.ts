@@ -13,7 +13,5 @@ async function bootstrap() {
   }
 }
 
-app.use("/", async (req, res) => {
-  res.send(`Server running in ${config.port}`);
-});
+
 bootstrap();
