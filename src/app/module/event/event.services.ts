@@ -120,10 +120,32 @@ const deleteEventService = async (eventId: string) => {
   return event;
 };
 
+const joinEventService = async (eventId: string, userId: string) => {
+  if (!eventId || !userId) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Event ID and User ID are required");
+  }
+
+  const event = await Event.findById(eventId);
+
+  if (!event) {
+    throw new AppError(httpStatus.NOT_FOUND, "Event not found");
+  }
+
+  if (event.joinedUsers.includes(userId)) {
+    throw new AppError(httpStatus.BAD_REQUEST, "User already joined the event");
+  }
+
+  event.joinedUsers.push(userId);
+  await event.save();
+
+  return event;
+};
+
 export const eventServices = {
   createEventService,
   getAllEventsService,
   getSingleEventService,
+  joinEventService,
   updateEventService,
   deleteEventService,
   getMyEventsService,
