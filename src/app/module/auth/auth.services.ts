@@ -50,6 +50,12 @@ const loginUser = async (payload: TLoginUser) => {
   };
 };
 
+const logoutUser = async () => {
+  // Invalidate the user's refresh token
+  return {};
+};
+
 export const authServices = {
   loginUser,
+  logoutUser,
 };

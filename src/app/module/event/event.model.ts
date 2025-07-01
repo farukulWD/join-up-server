@@ -38,7 +38,7 @@ const eventSchema = new Schema<IEvent>(
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
-        unique: true,
+        default: [],
       },
     ],
   },

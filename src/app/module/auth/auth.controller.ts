@@ -26,6 +26,22 @@ const loginUser = catchAsync(async (req, res) => {
   });
 });
 
+const logoutUser = catchAsync(async (req, res) => {
+  const result = await authServices.logoutUser();
+  res.clearCookie("join-up-refreshToken", {
+    secure: config.env === "production",
+    httpOnly: true,
+    sameSite: "strict",
+  });
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "User is logged out successfully!",
+    data: result,
+  });
+});
+
 export const authControllers = {
   loginUser,
+  logoutUser
 };

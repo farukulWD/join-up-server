@@ -100,10 +100,24 @@ const getMyEventsService = async (userId: string) => {
   }
 
   const events = await Event.find({ postedBy: userId })
-    .populate("postBy")
+    .populate("postedBy")
     .populate("joinedUsers");
 
   return events;
+};
+
+const deleteEventService = async (eventId: string) => {
+  if (!eventId) {
+    throw new AppError(httpStatus.BAD_REQUEST, "Event ID is required");
+  }
+
+  const event = await Event.findByIdAndDelete(eventId);
+
+  if (!event) {
+    throw new AppError(httpStatus.NOT_FOUND, "Event not found");
+  }
+
+  return event;
 };
 
 export const eventServices = {
@@ -111,5 +125,6 @@ export const eventServices = {
   getAllEventsService,
   getSingleEventService,
   updateEventService,
+  deleteEventService,
   getMyEventsService,
 };
