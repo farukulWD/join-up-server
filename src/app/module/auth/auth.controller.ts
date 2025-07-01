@@ -11,7 +11,7 @@ const loginUser = catchAsync(async (req, res) => {
   res.cookie("join-up-refreshToken", refreshToken, {
     secure: config.env === "production",
     httpOnly: true,
-    sameSite: "strict",
+    sameSite: config.env === "production" ? "none" : "lax",
     maxAge: 1000 * 60 * 60 * 24 * 365,
   });
 
@@ -31,7 +31,7 @@ const logoutUser = catchAsync(async (req, res) => {
   res.clearCookie("join-up-refreshToken", {
     secure: config.env === "production",
     httpOnly: true,
-    sameSite: "strict",
+    sameSite: config.env === "production" ? "none" : "lax",
   });
   sendResponse(res, {
     statusCode: httpStatus.OK,
